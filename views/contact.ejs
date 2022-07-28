@@ -1,0 +1,55 @@
+<%- include('../layouts/header') %>
+    <div class="jumbotron jumbotron-fluid mt-5">
+        <div class="container ">
+            <h1 class="display-4">daftar contact</h1>
+            <p class="lead">contact mahasiswa</p>
+        </div>
+    </div>
+    <% if (flash.length !==0) { %>
+        <div class="alert alert-info" role="alert">
+            <%= flash %>
+        </div>
+        <% } %>
+            <a href="contact/add" class="btn btn-primary ms-4"><i class="bi bi-person-plus-fill"></i> masukan
+                data</a>
+            <table class="table mt-4">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">noHP</th>
+                        <th scope="col">All</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (contacts.length===0) { %>
+                        <tr>
+                            <td colspan="2">
+                                <div class="alert alert-danger" role="alert">
+                                    data anda kosong
+                                </div>
+                            </td>
+                        </tr>
+                        <% } %>
+                            <%contacts.forEach((a,b)=> { %>
+                                <tr>
+                                    <th>
+                                        <%= b+1 %>
+                                    </th>
+                                    <td>
+                                        <%= a.nama %>
+                                    </td>
+                                    <td>
+                                        <%= a.noHP %>
+                                    </td>
+                                    <td><button type="button"
+                                            class="btn btn-dark badge rounded-pill text-bg-dark-info"><a
+                                                href="/contact/<%= a.nama %>"><i
+                                                    class="bi bi-card-text"></i>detail</a></button>
+                                    </td>
+                                </tr>
+                                <% }) %>
+
+                </tbody>
+            </table>
+            <%- include('../layouts/footer') %>

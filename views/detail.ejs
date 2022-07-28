@@ -1,0 +1,33 @@
+<%- include('../layouts/header') %>
+    <% if (!contacts) { %>
+        <div class="alert alert-danger" role="alert">
+            maaf alamat anda salah
+            <br>
+            <a href="/contact">kembali</a>
+        </div>
+        <% } else{ %>
+            <div class="card mt-5 ms-5" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%= contacts.nama %>
+                    </h5>
+                    <h6 class="card-subtitle mb-2 text-muted">
+                        <%= contacts.noHP %>
+                    </h6>
+                    <br>
+                    <p class="card-text">
+                        <%= contacts.email %>
+                    </p>
+                    <!-- <a href="/contact/delete/<= contacts.nama %>" class="btn btn-danger"
+                        onclick="return confirm('hapus data')">hapus</a> -->
+                    <form action="/contact?_method=delete" method="post">
+                        <input type="hidden" name="nama" value="<%=contacts.nama%>">
+                        <button class="btn btn-danger" onclick="return confirm('kamu yakin')">delete</button>
+                    </form>
+                    <a href="/contact/edit/<%= contacts.nama %>" class="btn btn-info">edit</a>
+                    <br> <br>
+                    <a href="/contact" class="card-link">kembali kehalaman contact</a>
+                </div>
+            </div>
+            <% } %>
+                <%- include('../layouts/footer') %>

@@ -1,0 +1,28 @@
+<%- include('../layouts/header') %>
+
+    <%- include('../layouts/main') %>
+        <h1>daftar mahasiswa</h1>
+        <h2> list</h2>
+        <ul>
+
+            <% if (mhs.length <=0) { %>
+                <h1>
+                    data anda kosong
+                </h1>
+                <% } else{%>
+
+                    <%mhs.forEach(a=> { %>
+
+                        <li>nama :<%= a.nama %>
+                        </li>
+                        <li>kelas : <%= a.kelas %>
+                        </li>
+                        <li>umur : <%= a.umur %>
+                        </li>
+                        <li>jurusan :<%= a.jurusan %>
+                        </li>
+
+                        <% }) %>
+                            <% } %>
+        </ul>
+        <%- include('../layouts/footer') %>

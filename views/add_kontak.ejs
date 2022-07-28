@@ -1,0 +1,42 @@
+<%- include('../layouts/header') %>
+    <h1 class="mt-5">tambahkan user</h1>
+
+    <% if (typeof errors !=='undefined' ) { %>
+        <div class="row">
+            <div class="col-sm-8">
+                <ul class="list-group">
+                    <% errors.forEach(error=> { %>
+                        <li class="list-group-item list-group-item-danger mt-1 mb-1">
+                            <%= error.msg %>
+                        </li>
+                        <% }) %>
+                </ul>
+            </div>
+        </div>
+        <% } %>
+            <!-- form method dan action akan di tangkap oleh express -->
+            <form method="post" action="/contact">
+                <div class="row">
+                    <div class="col-sm-6 ms-4">
+                        <div class="mb-3">
+                            <label for="nama" class="form-label"><i class="bi bi-pencil-square"></i> Masukan
+                                Nama</label>
+                            <input type="text" class="form-control" id="nama" name="nama" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label"><i class="bi bi-pencil-square"></i> Masukan
+                                Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="noHP" class=" form-label"><i class="bi bi-pencil-square"></i> Masukan No
+                                Handphone</label>
+                            <input type="text" class="form-control" id="noHP" name="noHP" required>
+                        </div>
+                        <button type=" submit" class="btn btn-primary"><i class="bi bi-download"></i> Submit</button>
+                    </div>
+                </div>
+            </form>
+
+
+            <%- include('../layouts/footer') %>

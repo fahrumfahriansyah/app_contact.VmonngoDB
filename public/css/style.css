@@ -1,0 +1,10 @@
+body {
+    background-color: rgb(252, 247, 247);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(53, 52, 52);
+}
+
+a {
+    color: aliceblue;
+    text-decoration: none;
+}
